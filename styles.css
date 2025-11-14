@@ -1,12 +1,10 @@
-/*  your css code here. If applicable */
 #grid-container {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  grid-gap: 10px;
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
-.grid-item {
+#grid-item {
   width: 100px;
   height: 100px;
   border: 2px solid black;
@@ -16,3 +14,4 @@
   font-size: 22px;
   background-color: transparent;
 }
+
