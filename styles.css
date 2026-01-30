@@ -1,17 +1,36 @@
-le>
-        #grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            gap: 10px;
-            margin-top: 20px;
-        }
-        #grid-item {
-            width: 100px;
-            height: 100px;
-            border: 2px solid black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            background-color: transparent;
-        }
+body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* Grid container */
+    #grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Grid items */
+    #grid-item {
+      width: 80px;
+      height: 80px;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-color: transparent;
+    }
+
+    input {
+      padding: 6px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 6px 10px;
+      cursor: pointer;
+    }
