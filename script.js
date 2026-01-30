@@ -1,31 +1,51 @@
-const changeBtn = document.getElementById("change_button");
-    const resetBtn = document.getElementById("Reset");
+// select all blocks
+const blocks = document.querySelectorAll('.grid-item');
 
-    const blockInput = document.getElementById("block_id");
-    const colorInput = document.getElementById("colour_id");
+const changeBtn = document.getElementById('change_button');
+const resetBtn = document.getElementById('reset');
 
-    const blocks = document.querySelectorAll("#grid-item");
+const blockInput = document.getElementById('block_id');
+const colourInput = document.getElementById('colour_id');
 
-    // Reset all blocks
-    function resetGrid() {
-      blocks.forEach(block => {
-        block.style.backgroundColor = "transparent";
-      });
-    }
 
-    // Change color
-    changeBtn.addEventListener("click", () => {
-      const id = blockInput.value;
-      const color = colorInput.value;
+// reset all blocks
+function resetGrid() {
+  blocks.forEach(block => {
+    block.style.backgroundColor = '';
+  });
+}
 
-      resetGrid(); // first reset all
 
-      blocks.forEach(block => {
-        if (block.dataset.id === id) {
-          block.style.backgroundColor = color;
-        }
-      });
-    });
+// change color
+changeBtn.addEventListener('click', () => {
+  const id = Number(blockInput.value);
+  const color = colourInput.value.trim();
 
-    // Reset button
-    resetBtn.addEventListener("click", resetGrid);
+  if (id < 1 || id > 9) {
+    alert('Enter block id between 1-9');
+    return;
+  }
+
+  if (!color) {
+    alert('Enter a color');
+    return;
+  }
+
+  // first reset everything
+  resetGrid();
+
+  // select specific block using data-id
+  const block = document.querySelector(`.grid-item[data-id="${id}"]`);
+
+  if (block) {
+    block.style.backgroundColor = color;
+  }
+});
+
+
+// reset button
+resetBtn.addEventListener('click', () => {
+  resetGrid();
+  blockInput.value = '';
+  colourInput.value = '';
+});
